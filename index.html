@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10131d">
+  <meta name="description" content="無需安裝、直接在瀏覽器遊玩的俄羅斯方塊。">
+  <title>BLOCKS — 俄羅斯方塊</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="BLOCKS 首頁"><span class="brand-mark">▦</span> BLOCKS</a>
+      <span class="top-label">經典方塊 · 放鬆一下</span>
+      <button class="icon-button" id="sound-button" type="button" aria-label="開啟音效" title="音效：關閉">♪</button>
+    </header>
+
+    <section class="game-layout" aria-label="俄羅斯方塊遊戲">
+      <aside class="side-panel left-panel">
+        <div class="eyebrow">本局分數</div>
+        <div class="score-value" id="score">000000</div>
+        <div class="stat-card"><span class="eyebrow">等級</span><strong id="level">01</strong></div>
+        <div class="stat-card"><span class="eyebrow">消除行數</span><strong id="lines">0</strong></div>
+        <div class="keyboard-hint"><div class="eyebrow">鍵盤操作</div><p><kbd>←</kbd> <kbd>→</kbd> 移動</p><p><kbd>↓</kbd> 加速下降</p><p><kbd>↑</kbd> 旋轉</p><p><kbd>Space</kbd> 瞬間落下</p><p><kbd>P</kbd> 暫停</p></div>
+      </aside>
+
+      <div class="board-wrap">
+        <div class="board-frame">
+          <canvas id="board" width="300" height="600" aria-label="10 欄 20 列遊戲區域"></canvas>
+          <div class="overlay" id="overlay">
+            <div class="overlay-card"><span class="overlay-icon" id="overlay-icon">▦</span><p class="eyebrow" id="overlay-kicker">準備好了嗎？</p><h1 id="overlay-title">開始遊戲</h1><p class="overlay-copy" id="overlay-copy">堆疊方塊，消除完整的橫列。</p><button class="primary-button" id="overlay-button" type="button">開始遊戲 <span>→</span></button></div>
+          </div>
+        </div>
+        <div class="mobile-controls" aria-label="觸控遊戲操作">
+          <button class="control-button" data-action="left" aria-label="向左移動">←</button>
+          <button class="control-button" data-action="down" aria-label="加速下降">↓</button>
+          <button class="control-button" data-action="right" aria-label="向右移動">→</button>
+          <button class="control-button accent" data-action="rotate" aria-label="旋轉">↻</button>
+          <button class="control-button wide" data-action="drop" aria-label="瞬間落下">瞬間落下 <span>↓</span></button>
+        </div>
+      </div>
+
+      <aside class="side-panel right-panel">
+        <div class="eyebrow">下一個</div>
+        <div class="next-frame"><canvas id="next" width="120" height="100" aria-label="下一個方塊預覽"></canvas></div>
+        <div class="stat-card best-card"><span class="eyebrow">最高分</span><strong id="best">000000</strong></div>
+        <button class="secondary-button" id="pause-button" type="button" disabled><span>Ⅱ</span> 暫停</button>
+        <button class="secondary-button" id="restart-button" type="button"><span>↻</span> 重新開始</button>
+        <p class="tip"><span>✦</span> 消除多行，挑戰更高分數。</p>
+      </aside>
+    </section>
+    <footer><span>一局接一局，享受方塊的節奏。</span><span>BLOCKS <i>·</i> CLASSIC</span></footer>
+  </main>
+</body>
+</html>
+
